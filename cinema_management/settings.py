@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'drf_spectacular',
     'cinema_app'
 ]
 
@@ -128,3 +129,14 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Cinema Management',
+    'DESCRIPTION': 'Manages a cinema with Movies and Rooms',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+}
