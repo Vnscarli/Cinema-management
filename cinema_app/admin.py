@@ -1,3 +1,5 @@
 from django.contrib import admin
+from cinema_app.models import Room, Movie
 
-# Register your models here.
+admin.site.register(Room)
+admin.site.register(Movie)
