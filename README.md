@@ -1,5 +1,5 @@
-#Django API for managing a cinema
-##This project was created to apply my knowledge in Django to a project done in a week
+# Django API for managing a cinema
+## This project was created to apply my knowledge in Django to a project
 
 It involvees creating a simple API in Django to manage Rooms and Movies in a cinema. The room can have multiple movies and a movie is able to be in the database without necessarily having a room to be displayed.
 
