@@ -28,6 +28,15 @@ class RoomTestCase(APITestCase):
         response=self.client.get(reverse('room-detail', args=(self.room.id,)))
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         
+    def test_room_update(self):
+        data={
+            "number": "3",
+            "description": "Room test"
+        }
+        response=self.client.put(reverse('room-detail', args=(self.room.id,)), data)
+        self.assertEqual(response.data.get("number"), 3)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        
         
 class MovieTestCase(APITestCase):
     
@@ -65,4 +74,14 @@ class MovieTestCase(APITestCase):
         
     def test_movie_detail(self):
         response=self.client.get(reverse('movies-detail', args=(self.movie.id,)))
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        
+    def test_movie_update(self):
+        data={
+            "name": "Testing123",
+            "director": "Director of movie for testing 123",
+            "duration": "2"
+        }
+        response=self.client.put(reverse('movies-detail', args=(self.movie.id,)), data)
+        self.assertEqual(response.data.get("name"), "Testing123")
         self.assertEqual(response.status_code, status.HTTP_200_OK)
